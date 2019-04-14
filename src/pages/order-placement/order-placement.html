@@ -1,0 +1,103 @@
+<ion-header >
+  <ion-navbar class="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-row>
+      <ion-col col-8>
+        <p class="title">Order Placement</p>
+      </ion-col>
+      </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col>
+      <ion-list inset >
+
+          <ion-item>
+              <ion-label floating class="optional">MFS DESIGN NO</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <img class="noimage" src="./assets/imgs/noimage.png"/>
+            <p>Click here to select picture from gallery</p>            
+        <ion-item>
+          <ion-label class="field-name">*Colour:</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+   
+        <ion-item>
+          <ion-label class="field-name">*Your Ref. No:</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+    
+        <p>Measurements</p>
+        <hr>
+
+        <ion-item>
+          <ion-label class="field-name">*Chest</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="field-name">*Waist:</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label class="field-name">*Hip</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="field-name">*Shoulder</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="field-name">*Sleeves</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="field-name">*Length</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="field-name">*Neck</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item class="delivery-date">
+          <ion-label class="field-name">*Delivery Date:</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="optional">Remarks </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label floating class="optional">Any Other Specification</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+      </ion-list>
+    </ion-col>
+  </ion-row> 
+
+  <ion-row>   
+    <ion-col>
+      <button ion-button full >MAKE ORDER </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

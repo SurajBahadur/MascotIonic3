@@ -1,0 +1,32 @@
+<ion-header >
+    <ion-toolbar>
+        
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-row>
+        <ion-col col-8>
+          <p class="title">Moscot</p>
+        </ion-col>      
+        <ion-col col-2>
+          <img class="logo" src="./assets/imgs/cart.png"/>
+        </ion-col>
+        <ion-col col-2>
+          <img class="logo" src="./assets/imgs/heart.png"/>
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+  
+</ion-header>
+<ion-content padding>
+
+
+  <ion-card class="grid-list backcolor" *ngFor="let item of data; let i=index">
+    <div class="image-item" no-lines> 
+      <img class="wardrobe" src="{{item.image}}" />
+      <ion-label class="cover_1">{{item.title}}</ion-label>
+    </div>
+  </ion-card>
+
+</ion-content>

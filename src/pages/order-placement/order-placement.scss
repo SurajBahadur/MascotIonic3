@@ -1,0 +1,39 @@
+page-order-placement {
+    .toolbar-background-md {
+        border-color: #B51C18;
+        background: #B51C18;
+    }
+
+    .title {
+        text-align: left;
+        color: white;
+        font-size: 16px;
+    }
+
+    .back-button.show-back-button {
+        display: inline-block;
+        color: white;
+    }
+
+    .field-name{
+        color: #b51c18!important;
+    }
+    
+    list-md .item-block .item-inner {
+        border-bottom: 1px solid #c5bbbb;
+    }
+
+    .delivery-date{
+        padding: 0%!important;
+    }
+
+    .optional{
+        color: gray;
+    }
+
+    .noimage{
+        width: 200px;
+        height: 200px;
+        margin-top: 10px;
+    }
+}

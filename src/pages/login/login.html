@@ -1,0 +1,29 @@
+<ion-content padding >
+	<div padding>
+		<ion-row>
+			<ion-col class="wave">
+				<img class="logo" src="./assets/imgs/logo.png"  height="100px" width="100px"/>
+			</ion-col>
+		</ion-row>
+		<form  class="loginform" [formGroup]="loginForm">
+		<ion-row>
+			<ion-col>
+				<ion-list inset class="no-border">
+					<ion-item class="animate-in-primary">
+						<ion-input type="text" formControlName="username" placeholder="Username" value="9819463835"></ion-input>
+					</ion-item>
+
+					<ion-item class="animate-in-primary">
+						<ion-input type="password" formControlName="password" placeholder="Password" ></ion-input>
+					</ion-item>
+				</ion-list>
+			</ion-col>
+    </ion-row> 
+		<ion-row>   
+			<ion-col>
+				<button ion-button full (click)="login()" [disabled]="!loginForm.valid">LOG IN </button>
+			</ion-col>
+		</ion-row>
+	</form>
+  </div>
+</ion-content>

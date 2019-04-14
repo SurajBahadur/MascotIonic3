@@ -1,0 +1,48 @@
+<ion-header >
+  <ion-navbar class="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-row>
+      <ion-col col-8>
+        <p class="title">Order Summary</p>
+      </ion-col>
+      </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card class="grid-list backcolor" *ngFor="let item of orderList; let i=index">
+      <ion-row>
+        <ion-col col-6>
+          <p class="order_info">ORDER ID : 883</p>
+        </ion-col>
+        <ion-col col-6>
+            <p class="order_date">29/03/2019</p>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+      <ion-col col-6>
+          <p class="order_info">REF NO : 883</p>
+        </ion-col>
+        <ion-col col-6>
+            <p class="order_status">Un Process</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+      <ion-col col-6>
+          <p class="order_info">D. NO : 1001</p>
+        </ion-col>
+        <ion-col col-6>
+            <p class="order_status">29/03/2019</p>
+        </ion-col>
+      </ion-row>
+
+      <p class="msg">Please Call at Office</p>
+      <hr>
+    </ion-card>
+
+</ion-content>
