@@ -1,14 +1,13 @@
 {
   "name": "",
-  "app_id": "",
   "integrations": {
     "cordova": {}
   },
+  "type": "ionic-angular",
   "proxies": [
     {
       "path": "/userapi.aspx",
       "proxyUrl": "http://mascot.asnasoftwaresolution.com"
     }
-  ],
-  "type": "ionic-angular"
+  ]
 }

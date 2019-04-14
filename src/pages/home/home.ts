@@ -44,7 +44,7 @@ export class HomePage {
     if(page.title=="Sign Out"){
         
     }else{
-      this.nav.push(page.component);
+      this.nav.setRoot(page.component);
     }
   }
 

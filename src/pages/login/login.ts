@@ -55,7 +55,7 @@ export class LoginPage {
             console.log(this.loginResponse.users[0])
             if(this.loginResponse.users[0].success == "success"){
               this.storage.set('cust_response',this.loginResponse.users[0]);
-              this.navCtrl.setRoot(DashboardPage);
+              this.navCtrl.setRoot(HomePage);
             }else{
               this.showToast(this.loginResponse.users[0].success);
             }
