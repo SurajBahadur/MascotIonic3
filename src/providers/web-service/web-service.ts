@@ -21,4 +21,11 @@ export class WebServiceProvider {
     return this.http.get(this.apiUrl+'userapi.aspx?USERNAME='+userName+'&'+'PASSWORD='+password+'&CUSTCODE')
   }
 
+  /**
+   * http://mascot.asnasoftwaresolution.com/specialApi.aspx?CUSTCODE=894
+   * @param customerCode 
+   */
+  public getMtmSummary(customerCode){
+    return this.http.get(this.apiUrl+'specialApi.aspx?CUSTCODE='+customerCode);
+  }
 }

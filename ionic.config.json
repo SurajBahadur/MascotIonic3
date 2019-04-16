@@ -9,5 +9,6 @@
       "path": "/userapi.aspx",
       "proxyUrl": "http://mascot.asnasoftwaresolution.com"
     }
-  ]
+  ],
+  "app_id": ""
 }

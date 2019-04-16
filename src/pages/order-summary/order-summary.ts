@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { WebServiceProvider } from '../../providers/web-service/web-service';
 
 /**
  * Generated class for the OrderSummaryPage page.
@@ -15,7 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OrderSummaryPage {
   orderList:Array<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loading:any;
+  response:any;
+  orderSummaryList:any;
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loadingCtrl:LoadingController,
+    public provider:WebServiceProvider,
+    public toastCtrl:ToastController,
+    public storage:Storage) {
 
     this.orderList = [
     {image: 'assets/imgs/test.png', title: 'INDO WESTERN'},
@@ -34,6 +44,44 @@ export class OrderSummaryPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderSummaryPage');
+    console.log();
+    this.getMtmSummaryList();
   }
+
+  getMtmSummaryList(){
+      
+    this.loading=this.loadingCtrl.create({
+      spinner:'bubbles',
+      content:`Please wait..`
+    });
+    this.loading.present();
+
+    this.provider.getMtmSummary(894).subscribe(
+      data=>{
+        this.response=data;
+        this.orderSummaryList=this.response.Order
+      },
+      err=>{
+          this.loading.dismiss();
+          this.showToast("Please try again later")
+      },
+
+      ()=>{
+        this.loading.dismiss();
+      }
+
+    )
+  }
+
+
+  showToast(msg:string) {
+    let toast = this.toastCtrl.create({
+     message: msg,
+     duration: 2000,
+     position: "bottom"
+   });
+
+   toast.present(toast);
+ }
 
 }

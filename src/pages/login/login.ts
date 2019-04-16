@@ -62,7 +62,7 @@ export class LoginPage {
       },
       err=>{
           this.loading.dismiss();
-          this.showToast("Please try again later")
+          this.showToast(err.json())
       },
 
       ()=>{
