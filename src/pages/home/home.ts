@@ -11,6 +11,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { NotificationPage } from '../notification/notification';
 import { AccountPage } from '../account/account';
 import { BillWisePage } from '../bill-wise/bill-wise';
+import { Storage } from '@ionic/storage';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -21,7 +23,8 @@ export class HomePage {
   rootPage: any = DashboardPage;
   pages: Array<{title: string, component: any}>
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+  public storage:Storage) {
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -42,7 +45,8 @@ export class HomePage {
 
   openPage(page) {
     if(page.title=="Sign Out"){
-        
+        this.storage.set("cust_response",null);
+        this.nav.setRoot(LoginPage)
     }else{
       this.nav.setRoot(page.component);
     }

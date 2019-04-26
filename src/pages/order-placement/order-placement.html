@@ -16,23 +16,27 @@
   <ion-row>
     <ion-col>
       <ion-list inset >
-
           <ion-item>
               <ion-label floating class="optional">MFS DESIGN NO</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" [(ngModel)]="order.design_no" ngDefaultControl maxlength="10"></ion-input>
             </ion-item>
 
-            <img class="noimage" src="./assets/imgs/noimage.png"/>
-            <p>Click here to select picture from gallery</p>            
-        <ion-item>
+            <!-- <img class="noimage" src="{{base64Image}}" (click)="getImage()"> -->
+            <img class="noimage"  src="{{selectedImage}}" (click)="getImageFromCamera()"/>
+            <ion-item (click)="getImage()">
+            <p>Click here to select picture from gallery </p>            
+          </ion-item>
+            <ion-item>
           <ion-label class="field-name">*Colour:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-select [(ngModel)]="order.color" ngDefaultControl >
+            <ion-option *ngFor="let item of colorList;let i=index" ngDefaultControl [value]="item.COLOUR">{{item.COLOUR}}</ion-option>
+          </ion-select>
         </ion-item>
 
    
         <ion-item>
           <ion-label class="field-name">*Your Ref. No:</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text"  ngDefaultControl [(ngModel)]="order.ref_no" maxlength="15"></ion-input>
         </ion-item>
     
         <p>Measurements</p>
@@ -40,64 +44,67 @@
 
         <ion-item>
           <ion-label class="field-name">*Chest</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input   ngDefaultControl [(ngModel)]="order.chest" maxlength="5" 
+          (keyup)="addDot('chest')" (keypress)="validate($event)"
+          ></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label class="field-name">*Waist:</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-label class="field-name" >*Waist:</ion-label>
+          <ion-input   ngDefaultControl [(ngModel)]="order.waist" maxlength="5" 
+          (keyup)="addDot('waist')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
 
         <ion-item>
-          <ion-label class="field-name">*Hip</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-label class="field-name" >*Hip</ion-label>
+          <ion-input  ngDefaultControl [(ngModel)]="order.hip" maxlength="5" (keyup)="addDot('hip')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label class="field-name">*Shoulder</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input  ngDefaultControl [(ngModel)]="order.shoulder" maxlength="5" (keyup)="addDot('shoulder')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label class="field-name">*Sleeves</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input  ngDefaultControl [(ngModel)]="order.sleeves" maxlength="5" (keyup)="addDot('sleeves')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label class="field-name">*Length</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input   ngDefaultControl [(ngModel)]="order.length" maxlength="5" (keyup)="addDot('length')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label class="field-name">*Neck</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input   ngDefaultControl [(ngModel)]="order.neck" maxlength="5" (keyup)="addDot('neck')" (keypress)="validate($event)"></ion-input>
         </ion-item>
 
-        <ion-item class="delivery-date">
+        <ion-item class="delivery-date" >
           <ion-label class="field-name">*Delivery Date:</ion-label>
-          <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+          <ion-datetime  ngDefaultControl [(ngModel)]="order.delivery_date" displayFormat="MMM DD YYYY"></ion-datetime>
         </ion-item>
 
         <ion-item>
           <ion-label floating class="optional">Remarks </ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text"  ngDefaultControl [(ngModel)]="order.remarks" maxlength="200"></ion-input>
         </ion-item>
 
 
         <ion-item>
           <ion-label floating class="optional">Any Other Specification</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" ngDefaultControl [(ngModel)]="order.other_specification" maxlength="200"></ion-input>
         </ion-item>
       
       </ion-list>
     </ion-col>
   </ion-row> 
 
-  <ion-row>   
-    <ion-col>
-      <button ion-button full >MAKE ORDER </button>
-    </ion-col>
-  </ion-row>
+    <ion-row>   
+      <ion-col>
+        <button ion-button full (click)="onMakeOrderClick()">MAKE ORDER </button>
+      </ion-col>
+    </ion-row>
 
 </ion-content>

@@ -13,13 +13,13 @@
 
 <ion-content padding>
 
-    <ion-card class="grid-list backcolor" *ngFor="let item of orderSummaryList; let i=index">
+    <ion-card class="grid-list backcolor" *ngFor="let item of orderSummaryList; let i=index" (click)="goToOrderDetail(item.orderid,item.custcode)">
       <ion-row>
         <ion-col col-6>
           <p class="order_info">ORDER ID : {{item.orderid}}</p>
         </ion-col>
         <ion-col col-6>
-            <p class="order_date">{{item.ORDDATE}}</p>
+            <p class="msg-red">{{item.ORDDATE}}</p>
         </ion-col>
       </ion-row>
       
@@ -37,11 +37,11 @@
           <p class="order_info">D. NO : {{item.DESIGNNO}}</p>
         </ion-col>
         <ion-col col-6>
-            <p class="order_status">{{item.del_date}}</p>
+            <p class="order_statuss">{{item.del_date}}</p>
         </ion-col>
       </ion-row>
 
-      <p class="msg">{{item.SPMSG}}</p>
+      <p class="msg-red">{{item.SPMSG}}</p>
       <hr>
     </ion-card>
 

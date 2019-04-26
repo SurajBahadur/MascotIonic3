@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { WebServiceProvider } from '../../providers/web-service/web-service';
+import { OrderDetailPage } from '../order-detail/order-detail';
 
 /**
  * Generated class for the OrderSummaryPage page.
@@ -20,6 +21,7 @@ export class OrderSummaryPage {
   loading:any;
   response:any;
   orderSummaryList:any;
+  custCode:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public loadingCtrl:LoadingController,
@@ -44,8 +46,15 @@ export class OrderSummaryPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderSummaryPage');
-    console.log();
-    this.getMtmSummaryList();
+      this.storage.get('cust_response').then((results)=>{
+      this.custCode=results;
+      if(results){
+        this.getMtmSummaryList();
+      }else{
+        this.showToast("Please try again later");
+      }
+    })
+   
   }
 
   getMtmSummaryList(){
@@ -56,10 +65,12 @@ export class OrderSummaryPage {
     });
     this.loading.present();
 
-    this.provider.getMtmSummary(894).subscribe(
+    console.log(this.custCode);
+    this.provider.getMtmSummary(this.custCode).subscribe(
       data=>{
         this.response=data;
         this.orderSummaryList=this.response.Order
+        console.log(this.response);
       },
       err=>{
           this.loading.dismiss();
@@ -71,6 +82,14 @@ export class OrderSummaryPage {
       }
 
     )
+  }
+
+  goToOrderDetail(orderId,custCode){
+    this.navCtrl.push(OrderDetailPage,{
+      orderId:orderId,
+      custCode:custCode
+    })
+
   }
 
 

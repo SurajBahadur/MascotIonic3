@@ -39,6 +39,13 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+
+    this.storage.get('cust_response').then((results)=>{
+      if(results){
+        this.navCtrl.setRoot(HomePage);
+      }
+    })
+
   }
 
   login(){
@@ -54,7 +61,7 @@ export class LoginPage {
             this.loginResponse=data;
             console.log(this.loginResponse.users[0])
             if(this.loginResponse.users[0].success == "success"){
-              this.storage.set('cust_response',this.loginResponse.users[0]);
+              this.storage.set('cust_response',this.loginResponse.users[0].custcode);
               this.navCtrl.setRoot(HomePage);
             }else{
               this.showToast(this.loginResponse.users[0].success);
@@ -62,7 +69,7 @@ export class LoginPage {
       },
       err=>{
           this.loading.dismiss();
-          this.showToast(err.json())
+          this.showToast(err.json());
       },
 
       ()=>{

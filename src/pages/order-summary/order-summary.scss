@@ -10,8 +10,21 @@ page-order-summary {
         font-size: 16px;
     }
 
+    .grid-list{
+        padding: 10px;
+    }
+
     .back-button.show-back-button {
         display: inline-block;
         color: white;
     }
+
+    .msg-red{
+        color: red;
+    }
+
+    .order_status{
+        color: green;
+    }
+
 }
